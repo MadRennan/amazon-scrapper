@@ -1,0 +1,95 @@
+/* --- Root Variables (unchanged) --- */
+:root {
+  --primary-color: #232f3e;
+  --secondary-color: #ff9900;
+  --background-color: #f0f2f5;
+  --card-background: #ffffff;
+  --text-color: #0f1111;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+}
+
+#app { max-width: 1400px; margin: 0 auto; }
+
+/* --- Header and Form (minor text change) --- */
+header {
+  background-color: var(--primary-color);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  margin-bottom: 20px;
+}
+header h1 { color: white; margin: 0 0 10px 0; }
+header p { color: #ccc; margin-top: 0; }
+#search-form { display: flex; justify-content: center; gap: 10px; }
+#keyword-input { width: 300px; padding: 12px 15px; border-radius: 4px; border: 1px solid #ccc; font-size: 16px; }
+button { padding: 12px 22px; background-color: var(--secondary-color); color: var(--primary-color); border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s; }
+button:hover { background-color: #e68a00; }
+button:disabled { background-color: #ccc; cursor: not-allowed; }
+
+/* --- NEW: Filter and Sort Controls --- */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+  box-shadow: var(--box-shadow);
+}
+.filter-group { display: flex; align-items: center; gap: 10px; }
+.filter-group label { font-weight: 500; }
+#sort-select, #hide-sponsored { font-size: 14px; padding: 5px; border-radius: 4px; border: 1px solid #ddd; }
+
+/* --- Results and Product Cards (Updated) --- */
+#results-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+.product-card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none; /* Remove underline from link */
+  color: inherit; /* Inherit text color */
+  position: relative; /* For sponsored badge positioning */
+}
+.product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
+
+/* --- NEW: Sponsored Badge --- */
+.sponsored-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.product-image { width: 100%; height: 200px; object-fit: contain; padding: 10px; background-color: #fdfdfd; }
+.product-info { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
+.product-title { font-size: 16px; font-weight: 600; line-height: 1.4; flex-grow: 1; margin: 0 0 10px 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.product-details { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #555; }
+.product-price { font-size: 20px; font-weight: bold; color: #B12704; margin-bottom: 10px; }
+.product-rating { display: flex; align-items: center; gap: 5px; }
+.star { color: #f90; }
+
+.status { text-align: center; font-size: 18px; margin-top: 40px; color: #555; }

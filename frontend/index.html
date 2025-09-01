@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon Scraper Pro</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Amazon Product Scraper 🛍️</h1>
+        <p>An advanced scraper using a headless browser to get richer data.</p>
+        <form id="search-form">
+          <input
+            type="text"
+            id="keyword-input"
+            placeholder="e.g., 'wireless earbuds'"
+            required
+          />
+          <button type="submit">Scrape Products</button>
+        </form>
+      </header>
+
+      <div class="controls">
+        <div class="filter-group">
+          <label for="sort-select">Sort by:</label>
+          <select id="sort-select">
+            <option value="default">Default</option>
+            <option value="rating">Rating (High to Low)</option>
+            <option value="price-desc">Price (High to Low)</option>
+            <option value="price-asc">Price (Low to High)</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <input type="checkbox" id="hide-sponsored" />
+          <label for="hide-sponsored">Hide Sponsored</label>
+        </div>
+      </div>
+      
+      <main>
+        <div id="results-container">
+          <!-- Scraped products will be displayed here -->
+        </div>
+        <p id="status-message" class="status">Enter a keyword to start scraping.</p>
+      </main>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
